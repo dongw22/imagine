@@ -20,7 +20,7 @@ pip install einops gdown addict future lmdb numpy pyyaml requests scipy yapf lpi
 - [Our Test Output](https://mcmasteru365-my.sharepoint.com/:f:/g/personal/dongw22_mcmaster_ca/EpN54Q4bzO9DteK4tntg_eYB4X8XzlqI8A6HNXtAUEALSw?e=7zbUrM).
 
 ### Testing
-Download above saved models and put it into the folder ./Enhancement/weights. To test the model, you need to specify the input image path (`args.input_dir`), the input structure prior path(`args.input_dir_s`), and pre-trained model path (`args.weights`) in `./Enhancement/test_unpair.py`. Then run
+Download above saved models and put it into the folder ./Enhancement/weights. To test the model, you need to specify the input image path (`args.input_dir`), the input structure prior path(`args.input_dir_s`), and pre-trained model path (`args.weights`) in `./Enhancement/test.py`. Then run
 ```bash
 cd Enhancement
 python Enhancement/test.py 
