@@ -2,7 +2,7 @@
 1. Create Conda Environment
 ```
 conda create --name imagine python=3.10
-conda activate oath
+conda activate imagine
 ```
 
 2. Install Dependencies
