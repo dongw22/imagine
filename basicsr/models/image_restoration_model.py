@@ -154,18 +154,6 @@ class ImageCleanModel(BaseModel):
         if 'gt_s' in data:
             self.gt_s = data['gt_s'].to(self.device)
 
-        
-        self.lq_path = data['lq_path'][0]
-
-        if os.path.basename(self.lq_path) == '92.png':
-            self.scale_factor = torch.from_numpy(np.array([0.92])).to(self.device)
-        elif os.path.basename(self.lq_path) == '86.png':
-            self.scale_factor = torch.from_numpy(np.array([0.99])).to(self.device)
-        elif os.path.basename(self.lq_path) == '108.png':
-            self.scale_factor = torch.from_numpy(np.array([1.05])).to(self.device)
-        else:
-            self.scale_factor = torch.from_numpy(np.array([1.0])).to(self.device)
-
         #if self.mixing_flag:
         #    self.gt, self.lq = self.mixing_augmentation(self.gt, self.lq)
 
