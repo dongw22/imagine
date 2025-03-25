@@ -11,27 +11,6 @@ from basicsr.models.archs.RetinexFormer_arch import IG_MSA, IGAB
 
 factor = 2
 
-class SimpleCNN(nn.Module):
-    def __init__(self, num_channels):
-        super(SimpleCNN, self).__init__()
-        self.conv1 = nn.Conv2d(num_channels, 16, kernel_size=3, padding=1)
-        self.conv2 = nn.Conv2d(16, 32, kernel_size=3, padding=1)
-        self.conv3 = nn.Conv2d(32, 64, kernel_size=3, padding=1)
-        self.pool = nn.MaxPool2d(2, 2)
-        self.adaptive_pool = nn.AdaptiveAvgPool2d((6, 6))  
-        self.fc1 = nn.Linear(64 * 6 * 6, 512)
-        self.fc2 = nn.Linear(512, 1)
-
-    def forward(self, x):
-        x = self.pool(F.relu(self.conv1(x)))
-        x = self.pool(F.relu(self.conv2(x)))
-        x = self.pool(F.relu(self.conv3(x)))
-        x = self.adaptive_pool(x)  
-        x = x.view(-1, 64 * 6 * 6)
-        x = F.relu(self.fc1(x))
-        x = self.fc2(x)
-        return x
-
 class UHDM(nn.Module):
     def __init__(self,
                  en_feature_num=48,
@@ -44,12 +23,6 @@ class UHDM(nn.Module):
         self.encoder = Encoder(feature_num=en_feature_num, inter_num=en_inter_num, sam_number=sam_number)
         self.decoder = Decoder(en_num=en_feature_num, feature_num=de_feature_num, inter_num=de_inter_num,
                                sam_number=sam_number)
-
-        for k, v in self.encoder.named_parameters():
-            v.requires_grad = False
-
-        for k, v in self.decoder.named_parameters():
-            v.requires_grad = False
 
     def forward(self, x, s):
 
