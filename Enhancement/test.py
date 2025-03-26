@@ -108,10 +108,10 @@ with torch.inference_mode():
         img_s = np.float32(utils.load_img(input_s_path))/255.
 
         img = torch.from_numpy(img).permute(2,0,1)
-        input_ = img.unsqueeze(0).cuda()[:, :, :256, :256]
+        input_ = img.unsqueeze(0).cuda()
 
         img_s = torch.from_numpy(img_s).permute(2,0,1)
-        input_s_= img_s.unsqueeze(0).cuda()[:, :, :256, :256]
+        input_s_= img_s.unsqueeze(0).cuda()
 
         # Padding in case images are not multiples of 32
         h,w = input_.shape[2], input_.shape[3]
