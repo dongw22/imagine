@@ -122,17 +122,12 @@ with torch.inference_mode():
         input_ = F.pad(input_, (0,padw,0,padh), 'reflect')
         input_s_ = F.pad(input_s_, (0,padw,0,padh), 'reflect')
         
-        
         restored = self_ensemble(input_, input_s_, model_restoration)
 
         # Unpad images to original dimensions
         restored = restored[:,:,:h,:w]
-        restored = model_restoration.process(input_[:,:,:h,:w], restored)
+        if checkpoint_name.split('_')[-1] == 'complete':
+            restored = model_restoration.process(input_[:,:,:h,:w], restored)
         
         restored = torch.clamp(restored,0,1).cpu().detach().permute(0, 2, 3, 1).squeeze(0).numpy()
-
-
         utils.save_img((os.path.join(result_dir, os.path.splitext(os.path.split(inp_path)[-1])[0]+'.png')), img_as_ubyte(restored))
-
-
-
