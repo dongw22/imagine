@@ -83,7 +83,10 @@ print('total parameters:', total)
 
 checkpoint = torch.load(weights)
 checkpoint_name = os.path.basename(weights).split('.')[0]
-model_restoration.load_state_dict(checkpoint, strict=True)
+if checkpoint_name.split('_')[-1] == 'complete':
+    model_restoration.load_state_dict(checkpoint, strict=True)
+else:
+    model_restoration.load_state_dict(checkpoint['params'], strict=False)
 print("===>Testing using weights: ",weights)
 model_restoration.cuda()
 model_restoration.eval()
