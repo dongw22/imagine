@@ -14,7 +14,7 @@ pip install einops gdown addict future lmdb numpy pyyaml requests scipy yapf lpi
 
 
 ### Pre-trained Model
-- [Pre-trained Model for NTIRE 2025 Low Light Image Enhancement Challenge](https://mcmasteru365-my.sharepoint.com/:u:/g/personal/dongw22_mcmaster_ca/EQOvdzV160JMv-yge2bM3TcBG9Z6oOb4HyTlB4L4aDgsOw?e=8JfVC0).
+- [Pre-trained Model for NTIRE 2025 Low Light Image Enhancement Challenge](https://mcmasteru365-my.sharepoint.com/:f:/g/personal/dongw22_mcmaster_ca/Em4rtdZsS3NKtE2K-pTXCXsBSrwmB_gPwXtd0eldBUn6Ig?e=pAZVvC).
 
 ### Our Submission on Test Sever
 - [Our Test Output](https://mcmasteru365-my.sharepoint.com/:f:/g/personal/dongw22_mcmaster_ca/EpN54Q4bzO9DteK4tntg_eYB4X8XzlqI8A6HNXtAUEALSw?e=7zbUrM).
