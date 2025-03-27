@@ -54,7 +54,7 @@ parser = argparse.ArgumentParser(description='Image Enhancement using MIRNet-v2'
 parser.add_argument('--input_dir', default='test/input', type=str, help='Directory of validation images')
 parser.add_argument('--input_s_dir', default='test/input_s', type=str, help='Directory of validation images')
 parser.add_argument('--result_dir', default='test-results-ntire25', type=str, help='Directory for results')
-parser.add_argument('--weights', default='weights/net_g_14970_complete.pth', type=str, help='Path to weights')
+parser.add_argument('--weights', default='weights/model_complete.pth', type=str, help='Path to weights')
 parser.add_argument('--dataset', default='25train', type=str, help='Test Dataset')
 
 args = parser.parse_args()
